@@ -14,7 +14,19 @@ The `0.1.0-rc.2` package is a release candidate extracted from the production MA
 
 This boundary is intentional. Installing the development package must not replace existing routes, rerun existing migrations, or alter published content.
 
-## Local Installation
+## Installation
+
+Install the Laravel 11/12/13 release candidate from Packagist:
+
+```bash
+composer require madtechservices/madcms:0.1.0-rc.2
+php artisan madcms:install
+php artisan madcms:status
+```
+
+The explicit version is required while MAD CMS is a prerelease. A normal stable constraint will be documented with `0.1.0`.
+
+### Local Package Development
 
 The host application uses a Composer path repository while extraction is in progress:
 
@@ -156,26 +168,38 @@ The package public form renderer owns field iteration, stable control IDs, valid
 Package subpath exports are available for hosts that only need part of the frontend:
 
 ```ts
-import { createModuleRegistry } from '@madtechservices/madcms/registry';
-import { AdvancedStyleFields } from '@madtechservices/madcms/advanced-style-fields';
-import { MadCmsAdminShell } from '@madtechservices/madcms/admin-shell';
-import { MadCmsPagesCollection } from '@madtechservices/madcms/admin-collections';
-import { MadCmsFormEditor } from '@madtechservices/madcms/admin-form-editor';
-import { MadCmsModuleEditor } from '@madtechservices/madcms/admin-module-editor';
-import { MadCmsPageEditor } from '@madtechservices/madcms/admin-page-editor';
-import { CmsFormRenderer, DefaultFormControl } from '@madtechservices/madcms/form-renderers';
-import { BuilderCanvas } from '@madtechservices/madcms/builder-canvas';
-import { SchemaModuleFields } from '@madtechservices/madcms/editor-fields';
-import { CORE_MODULE_EDITOR_SCHEMAS, editorSchemaFor } from '@madtechservices/madcms/editor-schemas';
-import { LayoutStyleFields } from '@madtechservices/madcms/layout-style-fields';
-import { CanvasComponentPicker, groupLibraryModules } from '@madtechservices/madcms/module-library';
-import { CanvasPropertiesPanel } from '@madtechservices/madcms/property-panel';
-import { ResponsiveStyleControls } from '@madtechservices/madcms/responsive-style-controls';
-import { CoreModuleRenderer, coreModuleRegistry } from '@madtechservices/madcms/renderers';
-import { SectionModuleRenderer } from '@madtechservices/madcms/section-renderers';
-import { moduleClass, safeLinkHref } from '@madtechservices/madcms/runtime';
-import { BUILDER_STARTER_ELEMENTS } from '@madtechservices/madcms/schemas';
-import type { BuilderHost, BuilderLayout } from '@madtechservices/madcms/types';
+import { createModuleRegistry } from "@madtechservices/madcms/registry";
+import { AdvancedStyleFields } from "@madtechservices/madcms/advanced-style-fields";
+import { MadCmsAdminShell } from "@madtechservices/madcms/admin-shell";
+import { MadCmsPagesCollection } from "@madtechservices/madcms/admin-collections";
+import { MadCmsFormEditor } from "@madtechservices/madcms/admin-form-editor";
+import { MadCmsModuleEditor } from "@madtechservices/madcms/admin-module-editor";
+import { MadCmsPageEditor } from "@madtechservices/madcms/admin-page-editor";
+import {
+  CmsFormRenderer,
+  DefaultFormControl,
+} from "@madtechservices/madcms/form-renderers";
+import { BuilderCanvas } from "@madtechservices/madcms/builder-canvas";
+import { SchemaModuleFields } from "@madtechservices/madcms/editor-fields";
+import {
+  CORE_MODULE_EDITOR_SCHEMAS,
+  editorSchemaFor,
+} from "@madtechservices/madcms/editor-schemas";
+import { LayoutStyleFields } from "@madtechservices/madcms/layout-style-fields";
+import {
+  CanvasComponentPicker,
+  groupLibraryModules,
+} from "@madtechservices/madcms/module-library";
+import { CanvasPropertiesPanel } from "@madtechservices/madcms/property-panel";
+import { ResponsiveStyleControls } from "@madtechservices/madcms/responsive-style-controls";
+import {
+  CoreModuleRenderer,
+  coreModuleRegistry,
+} from "@madtechservices/madcms/renderers";
+import { SectionModuleRenderer } from "@madtechservices/madcms/section-renderers";
+import { moduleClass, safeLinkHref } from "@madtechservices/madcms/runtime";
+import { BUILDER_STARTER_ELEMENTS } from "@madtechservices/madcms/schemas";
+import type { BuilderHost, BuilderLayout } from "@madtechservices/madcms/types";
 ```
 
 The MAD website's local path integration maps `@madcms/*` directly to the package source during extraction. The `0.1.0-rc.2` release distributes frontend source with the Composer package; other hosts should publish it with `madcms:install --frontend` or `madcms:install --admin-ui` and import from `resources/js/vendor/madcms`. The npm manifest is a frontend contract and CI workspace, not a separately published npm package in this release.

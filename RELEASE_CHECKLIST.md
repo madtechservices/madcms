@@ -2,12 +2,12 @@
 
 ## Automated
 
-- [ ] `composer validate --strict --no-check-publish`
-- [ ] `npm install --no-package-lock`
-- [ ] `npx tsc --noEmit -p tsconfig.json`
-- [ ] `bash tests/clean-install.sh 11 12 13`
-- [ ] `bash tests/archive-install.sh 11 12 13`
-- [ ] Confirm the release tag exactly matches `madcms-package.json` and `package.json` (for example `v0.1.0-rc.2`).
+- [x] `composer validate --strict --no-check-publish`
+- [x] `npm install --no-package-lock`
+- [x] `npx tsc --noEmit -p tsconfig.json`
+- [x] `bash tests/clean-install.sh 11 12 13`
+- [x] `bash tests/archive-install.sh 11 12 13`
+- [x] Confirm the release tag exactly matches `madcms-package.json` and `package.json` (for example `v0.1.0-rc.2`).
 
 ## Repository
 
@@ -20,5 +20,5 @@
 
 - [x] Submit `https://github.com/madtechservices/madcms` to the `madtechservices` Packagist account.
 - [x] Connect the GitHub update hook.
-- [ ] Confirm Packagist detects Laravel 11/12/13 and PHP constraints.
-- [ ] Install the tagged release into a separate Laravel application before promoting it from release candidate to stable.
+- [x] Confirm Packagist detects Laravel 11/12/13 and PHP constraints.
+- [x] Install the tagged release into a separate Laravel application before promoting it from release candidate to stable.
