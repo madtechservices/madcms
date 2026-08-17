@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  verify-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: composer:v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Verify manifest version
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          php -r '$manifest = json_decode(file_get_contents("madcms-package.json"), true, flags: JSON_THROW_ON_ERROR); $npm = json_decode(file_get_contents("package.json"), true, flags: JSON_THROW_ON_ERROR); $expected = ltrim(getenv("RELEASE_TAG"), "v"); if (($manifest["version"] ?? null) !== $expected || ($npm["version"] ?? null) !== $expected) { fwrite(STDERR, "Distribution and npm versions must equal the release tag.\n"); exit(1); }'
+      - run: composer validate --strict --no-check-publish
+      - run: npm install --no-package-lock
+      - run: npx tsc --noEmit -p tsconfig.json
+      - run: bash tests/clean-install.sh 11 12
+      - run: bash tests/archive-install.sh 11 12
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${{ github.ref_name }}" --verify-tag --generate-notes
