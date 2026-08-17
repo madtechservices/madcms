@@ -11,10 +11,10 @@
 
 ## Repository
 
-- [ ] Create or update `madtechservices/madcms` on GitHub from this package directory.
-- [ ] Confirm Actions can run with read access and releases have `contents: write`.
+- [x] Create or update `madtechservices/madcms` on GitHub from this package directory.
+- [x] Confirm Actions can run with read access and releases have `contents: write`.
 - [ ] Review proprietary licensing terms before inviting third-party installation.
-- [ ] Push the release commit, then create and push the matching tag.
+- [x] Push the release commit, then create and push the matching tag.
 
 ## Packagist
 
