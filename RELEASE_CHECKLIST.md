@@ -18,7 +18,7 @@
 
 ## Packagist
 
-- [ ] Submit `https://github.com/madtechservices/madcms` to the `madtechservices` Packagist account.
-- [ ] Connect the GitHub update hook.
-- [ ] Confirm Packagist detects Laravel 11/12 and PHP 8.2+ constraints.
-- [ ] Install the tagged release into a separate Laravel application before promoting it from release candidate to stable.
+- [x] Submit `https://github.com/madtechservices/madcms` to the `madtechservices` Packagist account.
+- [x] Connect the GitHub update hook.
+- [x] Confirm Packagist detects Laravel 11/12 and PHP 8.2+ constraints.
+- [x] Install the tagged release into a separate Laravel application before promoting it from release candidate to stable.

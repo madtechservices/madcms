@@ -31,7 +31,9 @@ for version in "${versions[@]}"; do
         fi
 
         composer --working-dir="$fixture_dir" install --no-interaction --prefer-dist --no-progress --quiet
-        composer --working-dir="$fixture_dir" config repositories.madcms "$repository_type" "$repository_path"
+        if [[ "$repository_type" != "packagist" ]]; then
+            composer --working-dir="$fixture_dir" config repositories.madcms "$repository_type" "$repository_path"
+        fi
         composer --working-dir="$fixture_dir" require "madtechservices/madcms:${package_constraint}" \
             --no-interaction --with-all-dependencies --no-progress --quiet
         composer --working-dir="$fixture_dir" require inertiajs/inertia-laravel:^2.0 \
