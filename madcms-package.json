@@ -2,7 +2,7 @@
     "manifest_version": 1,
     "name": "MAD CMS",
     "slug": "madcms",
-    "version": "0.1.0-rc.1",
+    "version": "0.1.0-rc.2",
     "composer": {
         "package": "madtechservices/madcms",
         "constraint": "^0.1"
@@ -10,8 +10,17 @@
     "install": ["php artisan madcms:install", "php artisan madcms:status"],
     "requirements": {
         "php": "^8.2",
-        "laravel": "^11.0 || ^12.0",
+        "laravel": "^11.0 || ^12.0 || ^13.0",
         "frontend_contract": 1
     },
-    "capabilities": ["cms.pages", "cms.modules", "cms.forms", "cms.submissions", "cms.categories", "cms.builder", "cms.frontend-contract", "cms.admin-ui"]
+    "capabilities": [
+        "cms.pages",
+        "cms.modules",
+        "cms.forms",
+        "cms.submissions",
+        "cms.categories",
+        "cms.builder",
+        "cms.frontend-contract",
+        "cms.admin-ui"
+    ]
 }

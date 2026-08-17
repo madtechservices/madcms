@@ -1,11 +1,11 @@
 {
     "name": "@madtechservices/madcms",
-    "version": "0.1.0-rc.1",
+    "version": "0.1.0-rc.2",
     "private": true,
     "scripts": {
         "typecheck": "tsc --noEmit -p tsconfig.json",
-        "test:clean-install": "bash tests/clean-install.sh 11 12",
-        "test:archive": "bash tests/archive-install.sh 11 12"
+        "test:clean-install": "bash tests/clean-install.sh 11 12 13",
+        "test:archive": "bash tests/archive-install.sh 11 12 13"
     },
     "type": "module",
     "files": [

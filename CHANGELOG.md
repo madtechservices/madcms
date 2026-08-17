@@ -2,6 +2,12 @@
 
 All notable MAD CMS changes are documented here.
 
+## 0.1.0-rc.2 - 2026-08-17
+
+- Added Laravel 13 compatibility across all required Illuminate components.
+- Expanded source and distribution-archive CI to verify clean Laravel 13 installations.
+- Added Packagist-only installation verification for tagged releases.
+
 ## 0.1.0-rc.1 - 2026-08-05
 
 - Added reusable Laravel 11 and 12 CMS models, migrations, registries, queries, persistence services, publishing policy, form processing, and administration controllers.

@@ -10,7 +10,7 @@ MAD CMS is a reusable Laravel page builder, module system, and form builder main
 
 ## Current Development State
 
-The `0.1.0-rc.1` package is a release candidate extracted from the production MAD Tech Services website. It can run in standalone `package` mode or safe `hybrid` mode. Package discovery, configuration, diagnostics, extension registries, CMS models, access/category services, page/form/module/submission administration, public form processing, the verified migration sequence, frontend runtime, 22 renderers, visual page builder, and standalone administration screens are package-owned. The production host retains its branded theme and optional rich-text/media adapters.
+The `0.1.0-rc.2` package is a release candidate extracted from the production MAD Tech Services website. It can run in standalone `package` mode or safe `hybrid` mode. Package discovery, configuration, diagnostics, extension registries, CMS models, access/category services, page/form/module/submission administration, public form processing, the verified migration sequence, frontend runtime, 22 renderers, visual page builder, and standalone administration screens are package-owned. The production host retains its branded theme and optional rich-text/media adapters.
 
 This boundary is intentional. Installing the development package must not replace existing routes, rerun existing migrations, or alter published content.
 
@@ -30,7 +30,7 @@ For a clean standalone Laravel installation, set `MADCMS_MODE=package` before mi
 
 Package mode also registers `POST /forms/{form}` through the package public form controller. Hybrid mode leaves route registration disabled so an existing application can retain its current route and controller adapter without duplication.
 
-Compatibility is verified against clean Laravel 11 and Laravel 12 applications with disposable SQLite databases:
+Compatibility is verified against clean Laravel 11, Laravel 12, and Laravel 13 applications with disposable SQLite databases:
 
 ```bash
 npm run test:clean-install
@@ -68,7 +68,7 @@ This publishes the versioned types, registry, runtime utilities, starter schemas
 
 After extraction, tagged releases will be published from `madtechservices/madcms` on GitHub and Packagist. The package manifest in `madcms-package.json` is intended for the future MAD Laravel package manager.
 
-The package directory contains repository-ready GitHub Actions. CI validates clean installs across Laravel 11/12 and supported PHP versions plus the standalone frontend TypeScript contract. A `v*` tag is released only when it matches `madcms-package.json`; Packagist can then consume the GitHub tag through its standard webhook.
+The package directory contains repository-ready GitHub Actions. CI validates clean installs across Laravel 11/12/13 and supported PHP versions plus the standalone frontend TypeScript contract. A `v*` tag is released only when it matches `madcms-package.json`; Packagist can then consume the GitHub tag through its standard webhook.
 
 To install the optional standalone Inertia administration shell:
 
@@ -178,4 +178,4 @@ import { BUILDER_STARTER_ELEMENTS } from '@madtechservices/madcms/schemas';
 import type { BuilderHost, BuilderLayout } from '@madtechservices/madcms/types';
 ```
 
-The MAD website's local path integration maps `@madcms/*` directly to the package source during extraction. The `0.1.0-rc.1` release distributes frontend source with the Composer package; other hosts should publish it with `madcms:install --frontend` or `madcms:install --admin-ui` and import from `resources/js/vendor/madcms`. The npm manifest is a frontend contract and CI workspace, not a separately published npm package in this release.
+The MAD website's local path integration maps `@madcms/*` directly to the package source during extraction. The `0.1.0-rc.2` release distributes frontend source with the Composer package; other hosts should publish it with `madcms:install --frontend` or `madcms:install --admin-ui` and import from `resources/js/vendor/madcms`. The npm manifest is a frontend contract and CI workspace, not a separately published npm package in this release.

@@ -9,7 +9,7 @@ fixture_dir=""
 if (( $# > 0 )); then
     versions=("$@")
 else
-    versions=(11 12)
+    versions=(11 12 13)
 fi
 
 cleanup() {
